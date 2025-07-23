@@ -90,5 +90,6 @@ int _printf(const char *format, ...)
 		}
 		countformat++;
 	}
+	va_end(args);
 	return (0);
 }
