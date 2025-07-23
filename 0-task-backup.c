@@ -1,6 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
  * print_char - SOmething something
@@ -56,6 +57,7 @@ int _printf(const char *format, ...)
 {
 	int countformat = 0;
 	int counting_list = 0;
+	int countlen = 0;
 	va_list args;
 	op_list ops[] = {
 		{"c", print_char},
@@ -80,17 +82,19 @@ int _printf(const char *format, ...)
 				{
 					ops[counting_list].print(args);
 					countformat += 2;
+					countlen++;
 					break;
 				}
 				counting_list++;
 			}
 		}	
-		if (format[countformat] != '%')
+		else
 		{
 			write(1, &format[countformat], 1);
 		}
 		countformat++;
+		countlen++;
 	}
 	va_end(args);
-	return (countformat);
+	return (countlen);
 }
