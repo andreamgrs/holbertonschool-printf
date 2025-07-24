@@ -112,7 +112,7 @@ int _printf(const char *format, ...)
 					printed_count += ops[counting_list].print(args);
 					countformat += 2;
 					matched = 1;
-					continue;
+					break;
 				}
 				counting_list++;
 			}
