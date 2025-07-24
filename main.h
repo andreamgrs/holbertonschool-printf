@@ -5,7 +5,7 @@
 typedef struct op
 {
 	char *op;
-	void (*print)(va_list arg);
+	int (*print)(va_list arg);
 } op_list;
 
 int _printf(const char *format, ...);
