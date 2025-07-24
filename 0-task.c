@@ -81,7 +81,7 @@ int _printf(const char *format, ...)
 	op_list ops[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"%", print_per}
+		{"%", print_per},
 		{NULL, NULL}
 	};
 
