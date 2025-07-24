@@ -98,7 +98,7 @@ int _printf(const char *format, ...)
 			matched = 0;
 			if (format[countformat] == '%' && format[countformat + 1] == '%')
 			{
-				write(1, '%', 1);
+				write(1, "%", 1);
 				printed_count++;
 				countformat++;
 			}
