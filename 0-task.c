@@ -99,7 +99,9 @@ int _printf(const char *format, ...)
 			if (format[countformat] == '%' && format[countformat + 1] == '%')
 			{
 				write(1, "%", 1);
-				break;
+				printed_count += 1;
+				countformat += 2;
+				continue;
 			}
 
 
