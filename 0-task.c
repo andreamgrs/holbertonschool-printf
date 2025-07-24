@@ -48,19 +48,21 @@ int print_string(va_list arg)
 }
 
 /**
- * print_int - Print decimal integer
+ * print_per - Print the % character
  *
  * @arg: something
  *
- * Return -
+ * Return - 1 byte
+*/
 
-
-void print_int(va_list arg)
+int print_per(va_list arg)
 {
-	int atoi(char d);
-	d = va_arg(arg, int);
+	char c;
+	c = va_arg(arg, int);
 	write(1, &c, 1);
-}*/
+	return (1);
+}
+
 /**
  * _printf - SOmething something
  *
@@ -79,6 +81,7 @@ int _printf(const char *format, ...)
 	op_list ops[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"%", print_per}
 		{NULL, NULL}
 	};
 
