@@ -53,7 +53,6 @@ int print_string(va_list arg)
  * @arg: something
  *
  * Return - 1 byte
-*/
 
 int print_per(va_list arg)
 {
@@ -62,13 +61,13 @@ int print_per(va_list arg)
 	write(1, &p, 1);
 	return (1);
 }
-
+*/
 /**
  * _printf - SOmething something
  *
  * @format: something
  *
- * Return -
+ * Return - the number of characters printed.
  */
 
 int _printf(const char *format, ...)
@@ -81,7 +80,6 @@ int _printf(const char *format, ...)
 	op_list ops[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"%", print_per},
 		{NULL, NULL}
 	};
 
@@ -101,7 +99,7 @@ int _printf(const char *format, ...)
 
 			while (ops[counting_list].op != NULL)
 			{
-				if (format[countformat + 1] == ops[counting_list].op[0])
+				if (format[countformat + 1] == ops[counting_list].op[0] || format[countformat + 1] == '%')
 				{
 					printed_count += ops[counting_list].print(args);
 					countformat += 2;
