@@ -99,9 +99,9 @@ int _printf(const char *format, ...)
 
 			while (ops[counting_list].op != NULL)
 			{
-				if (format[countformat + 1] == '%')
+				if (format[countformat] == '%' && format[countformat + 1] == '%')
 				{
-					write(1, &format[countformat], 1);
+					write(1, &format[countformat + 1], 1);
 				}
 				if (format[countformat + 1] == ops[counting_list].op[0])
 				{
