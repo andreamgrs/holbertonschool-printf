@@ -57,9 +57,9 @@ int print_string(va_list arg)
 
 int print_per(va_list arg)
 {
-	char c;
-	c = va_arg(arg, int);
-	write(1, &c, 1);
+	char p;
+	p = va_arg(arg, int);
+	write(1, &p, 1);
 	return (1);
 }
 
