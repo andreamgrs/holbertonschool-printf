@@ -99,8 +99,6 @@ int _printf(const char *format, ...)
 			if (format[countformat] == '%' && format[countformat + 1] == '%')
 			{
 				write(1, "%", 1);
-				printed_count++;
-				countformat++;
 			}
 
 
@@ -113,7 +111,6 @@ int _printf(const char *format, ...)
 					matched = 1;
 					continue;
 				}
-				else
 				counting_list++;
 			}
 			if (matched == 0)
