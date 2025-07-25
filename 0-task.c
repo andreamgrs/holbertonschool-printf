@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * print_char - Printing char
@@ -101,9 +102,8 @@ int _printf(const char *format, ...)
 		}
 		if (format[countformat] == '%' && format[countformat + 1] == '\0')
 		{
-			printed_count = 0;
-			return (printed_count);
-			break;
+			exit(98);
+			return (-1);
 		}
 		if (format[countformat] == '%')
 		{
@@ -133,6 +133,7 @@ int _printf(const char *format, ...)
 		printed_count++;
 		countformat++;
 	}
+	printf(printed_count);
 	va_end(args);
 	return (printed_count);
 }
