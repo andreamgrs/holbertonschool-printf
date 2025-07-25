@@ -92,23 +92,22 @@ int _printf(const char *format, ...)
 
 	while (format[countformat] != '\0')
 	{
+		if (format[countformat] == '%' && format[countformat + 1] == '%')
+		{
+			write(1, "%", 1);
+			printed_count += 1;
+			countformat += 2;
+			continue;
+		}
+		if (format[countformat] == '%' && format[countformat + 1] == '\0')
+		{
+			printed_count = 0;
+			break;
+		}
 		if (format[countformat] == '%')
 		{
 			counting_list = 0;
 			matched = 0;
-			if (format[countformat] == '%' && format[countformat + 1] == '%')
-			{
-				write(1, "%", 1);
-				printed_count += 1;
-				countformat += 2;
-				continue;
-			}
-
-			if (format[countformat] == '%' && format[countformat + 1] == '\0')
-			{
-				printed_count = 0;
-				break;
-			}
 
 			while (ops[counting_list].op != NULL)
 			{
