@@ -104,6 +104,10 @@ int _printf(const char *format, ...)
 				continue;
 			}
 
+			if (format[countformat] == '%' && format[countformat + 1] == '\0')
+			{
+				break;
+			}
 
 			while (ops[counting_list].op != NULL)
 			{
