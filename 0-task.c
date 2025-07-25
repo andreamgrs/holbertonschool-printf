@@ -106,6 +106,7 @@ int _printf(const char *format, ...)
 
 			if (format[countformat] == '%' && format[countformat + 1] == '\0')
 			{
+				printed_count = 0;
 				break;
 			}
 
