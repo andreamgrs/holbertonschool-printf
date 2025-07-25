@@ -47,43 +47,22 @@ int print_string(va_list arg)
 	write(1, s, len_string);
 	return (len_string);
 }
+
 /**
- * print_int - something
+ * print_per - Print the % character
+ *
  * @arg: something
  *
- * Return - 
- */
+ * Return - 1 byte
 
-int print_int(va_list arg)
+int print_per(va_list arg)
 {
-	int i;
-	int len_int;
-
-	i = va_arg(arg, int);
-	len_int = 0;
-	
-	if (i < 0)
-	{
-		write(1, "-", 1);
-		i = -i;
-		len_int++;
-	}
-	else if (i > 0)
-	{
-		write(1, i, 1);
-		len_int++;
-	}
-	else
-	{
-		write(1, "0", 1);
-		len_int = 1;
-	}
-
-	return (len_int);
+	char p;
+	p = va_arg(arg, int);
+	write(1, &p, 1);
+	return (1);
 }
-
-
-
+*/
 /**
  * _printf - SOmething something
  *
@@ -102,8 +81,6 @@ int _printf(const char *format, ...)
 	op_list ops[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"d", print_digit},
-		{"i", print_int},
 		{NULL, NULL}
 	};
 
