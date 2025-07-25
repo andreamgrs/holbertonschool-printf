@@ -56,7 +56,7 @@ int print_string(va_list arg)
 
 int print_int(va_list arg)
 {
-	int i;
+	int *i;
 	int len_int;
 
 	i = va_arg(arg, int);
@@ -70,7 +70,7 @@ int print_int(va_list arg)
 	}
 	else if (i > 0)
 	{
-		write(1, i, 1);
+		write(1, &i, 1);
 		len_int++;
 	}
 	else
@@ -81,8 +81,25 @@ int print_int(va_list arg)
 
 	return (len_int);
 }
+/**
+ * print_number:the recursive fun to convert integer in print_int
+ * @n
+ * string
+ */
+int print_number(int n)
+{
+	int len_int = 0;
+	char j;
 
-
+	if (n / 10)
+	{
+		len_int += print_number(n / 10);
+	}
+	j = '0' + (n % 10);
+	write(1, &j, 1);
+	len_int++;
+	return (len_int);
+} 
 
 /**
  * _printf - SOmething something
@@ -102,7 +119,7 @@ int _printf(const char *format, ...)
 	op_list ops[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"d", print_digit},
+		{"d", print_int},
 		{"i", print_int},
 		{NULL, NULL}
 	};
