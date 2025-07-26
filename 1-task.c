@@ -66,7 +66,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[countformat] == '%' && format[countformat + 1] == '%')
 		{
-			printed_count += write(1, "%", 1);
+			write(1, "%", 1);
+			printed_count++;
 			countformat += 2;
 			continue;
 		}
@@ -86,11 +87,13 @@ int _printf(const char *format, ...)
 				}
 			}
 			if (matched == 0)
-			printed_count += write(1, &format[countformat], 1);
+			write(1, &format[countformat], 1)
+			printed_count++;
 			countformat++;
 			continue;
 		}
-		printed_count += write(1, &format[countformat], 1);
+		write(1, &format[countformat], 1)
+		printed_count++;
 		countformat++;
 	}
 	va_end(args);
