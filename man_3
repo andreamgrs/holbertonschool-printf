@@ -1,0 +1,27 @@
+./" Manpage for _printf
+.TH man 1 "29 July 2025" "1.0" "_printf man page"
+
+.SH NAME
+_printf - prints character outputs
+
+.SH SYNOPSIS
+#include "main.h"
+
+int _printf(const char *format, ...);
+int print_char(va_list arg);
+int print_string(va_list arg);
+
+.SH DESCRIPTION
+The function _printf utilises write to print characters utilising several functions to accept variable arguments which are converted to an output for stdout.
+
+.SH OPTIONS
+_printf does not take any options
+
+.SH BUGS
+No known bugs
+
+.SH AUTHOR
+Written by Toni M., Andrea M. G., Michelle N. and Chloe Y.
+
+.SH REPORTING BUGS
+you_github_repository/issues for example
