@@ -87,12 +87,12 @@ int _printf(const char *format, ...)
 				}
 			}
 			if (matched == 0)
-			write(1, &format[countformat], 1)
+			write(1, &format[countformat], 1);
 			printed_count++;
 			countformat++;
 			continue;
 		}
-		write(1, &format[countformat], 1)
+		write(1, &format[countformat], 1);
 		printed_count++;
 		countformat++;
 	}
