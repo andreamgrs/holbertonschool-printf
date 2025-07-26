@@ -9,10 +9,24 @@
  */
 int main(void)
 {
-    int len;
+    /**int len;
     int len2;
     unsigned int ui;
-    void *addr;
+   void *addr; */
+
+    	_printf("%");
+	printf("%");
+/**	_printf("%s%c%c%c%s%%%s%c," "Loading ", '.', '.', " 99", "Please wait", '\n');
+	printf("%s%c%c%c%s%%%s%c," "Loading ", '.', '.', " 99", "Please wait", '\n');
+	_printf("css%cscs%scscscs", 'T', "test");
+	printf("css%cscs%scscscs", 'T', "test");
+	_printf("%");
+	printf("%");
+	_printf("Should print a single percent sign: %%\n");
+	printf("Should print a single percent sign: %%\n");
+
+    _printf("%");
+    printf("%");
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
@@ -40,5 +54,7 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
+    
+    */
     return (0);
 }
