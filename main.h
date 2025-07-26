@@ -10,7 +10,7 @@ typedef struct op
 
 int print_char(va_list arg);
 int print_string(va_list arg);
-int print_per(va_list arg);
+void counter(int printed_count, int countformat);
 int _printf(const char *format, ...);
 
 #endif

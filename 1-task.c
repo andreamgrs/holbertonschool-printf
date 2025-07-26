@@ -7,11 +7,10 @@
 /**
  * print_char - Printing char
  *
- * @arg: something
+ * @arg: Variable argument
  *
- * Return -
+ * Return: Always success
  */
-
 int print_char(va_list arg)
 {
 	char c;
@@ -24,11 +23,10 @@ int print_char(va_list arg)
 /**
  * print_string - Printing string
  *
- * @arg: something
+ * @arg: Variable argument
  *
- * Return -
+ * Return: Always success
  */
-
 int print_string(va_list arg)
 {
 	char *s;
@@ -49,68 +47,35 @@ int print_string(va_list arg)
 }
 
 /**
- * print_per - Print the % character
+ * _printf - Function to print characters.
  *
- * @arg: something
+ * @format: Format
  *
- * Return - 1 byte
-
-int print_per(va_list arg)
-{
-	char p;
-	p = va_arg(arg, int);
-	write(1, &p, 1);
-	return (1);
-}
-*/
-/**
- * _printf - SOmething something
- *
- * @format: something
- *
- * Return - the number of characters printed.
+ * Return: The number of characters printed.
  */
-
 int _printf(const char *format, ...)
 {
-	int countformat = 0;
-	int counting_list = 0;
-	int printed_count = 0;
-	int matched;
+	int countformat = 0, counting_list = 0, printed_count = 0, matched;
 	va_list args;
-	op_list ops[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{NULL, NULL}
-	};
+	op_list ops[] = {{"c", print_char}, {"s", print_string}, {NULL, NULL}};
 
 	if (format == NULL)
-	{
 		return (-1);
-	}
-
 	va_start(args, format);
-
 	while (format[countformat] != '\0')
 	{
 		if (format[countformat] == '%' && format[countformat + 1] == '%')
 		{
-			write(1, "%", 1);
-			printed_count += 1;
+			printed_count += write(1, "%", 1);
 			countformat += 2;
 			continue;
 		}
 		if (format[countformat] == '%' && format[countformat + 1] == '\0')
-		{
-			exit(98);
 			return (-1);
-		}
 		if (format[countformat] == '%')
 		{
-			counting_list = 0;
 			matched = 0;
-
-			while (ops[counting_list].op != NULL)
+			for (counting_list = 0; ops[counting_list].op != NULL; counting_list++)
 			{
 				if (format[countformat + 1] == ops[counting_list].op[0])
 				{
@@ -119,18 +84,13 @@ int _printf(const char *format, ...)
 					matched = 1;
 					break;
 				}
-				counting_list++;
 			}
 			if (matched == 0)
-			{
-				write(1, &format[countformat], 1);
-				printed_count++;
-				countformat++;
-			}
+			printed_count += write(1, &format[countformat], 1);
+			countformat++;
 			continue;
 		}
-		write(1, &format[countformat], 1);
-		printed_count++;
+		printed_count += write(1, &format[countformat], 1);
 		countformat++;
 	}
 	va_end(args);
