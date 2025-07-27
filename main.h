@@ -15,7 +15,7 @@ typedef struct op
 
 int print_char(va_list arg);
 int print_string(va_list arg);
-void counter(int printed_count, int countformat);
+int print_int(va_list arg);
 int _printf(const char *format, ...);
 
 #endif

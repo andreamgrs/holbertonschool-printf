@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 {
 	int countformat = 0, counting_list, printed_count = 0, matched;
 	va_list args;
-	op_list ops[] = {{"c", print_char}, {"s", print_string}, {NULL, NULL}};
+	op_list ops[] = {{"c", print_char}, {"s", print_string}, {"d", print_int}, {"i", print_int}, {NULL, NULL}};
 
 	if (format == NULL)
 		return (-1);
@@ -55,4 +55,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (printed_count);
 }
-
