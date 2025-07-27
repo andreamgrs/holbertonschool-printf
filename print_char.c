@@ -2,8 +2,8 @@
 
 /**
   * print_char - prints a char
-  * @c: character to print
-  * Return - On success 1
+  * @arg: arguments to passs
+  * Return: On success 1
   */
 
 int print_char(va_list arg)
