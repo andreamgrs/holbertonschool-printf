@@ -30,16 +30,20 @@ int print_number(int n)
 
 int print_int(va_list arg)
 {
-        int i = va_arg(arg, int);
-        int len_int = 0;
+	int i = va_arg(arg, int);
+	int len_int = 0;
+	unsigned int num;
 
-        if (i < 0)
-        {
-                write(1, "-", 1);
-                len_int++;
-		i = -i;
-        }
-        len_int += print_number(i);
-
-        return (len_int);
+	if (i < 0)
+	{
+		write(1, "-", 1);
+		len_int++;
+		num = -i;
+	}
+	else
+	{
+		num = i;
+	}
+	len_int += print_number(num);
+	return (len_int);
 }
