@@ -8,7 +8,7 @@
 
 int _printf(const char *format, ...)
 {
-	int countformat = 0, counting_list = 0, printed_count = 0, matched;
+	int countformat = 0, counting_list, printed_count = 0, matched;
 	va_list args;
 	op_list ops[] = {{"c", print_char}, {"s", print_string}, {NULL, NULL}};
 
@@ -29,9 +29,8 @@ int _printf(const char *format, ...)
 			return (-1);
 		if (format[countformat] == '%')
 		{
-			counting_list = 0;
 			matched = 0;
-			while (ops[counting_list].op != NULL)
+			for (counting_list = 0; ops[counting_list].op != NULL; counting_list++)
 			{
 				if (format[countformat + 1] == ops[counting_list].op[0])
 				{
@@ -40,7 +39,6 @@ int _printf(const char *format, ...)
 					matched = 1;
 					break;
 				}
-				counting_list++;
 			}
 			if (matched == 0)
 			{
