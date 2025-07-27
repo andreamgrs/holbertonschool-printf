@@ -1,6 +1,11 @@
-#ifndef PRINTF_H
-#define PRINTF_H
+#ifndef MAIN_H
+#define MAIN_H
+
 #include <stdarg.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <limits.h>
+#include <stdlib.h>
 
 typedef struct op
 {
