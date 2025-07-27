@@ -40,6 +40,18 @@ int print_int(va_list arg)
 		len_int++;
 		num = -i;
 	}
+	else if (i == INT_MIN)
+	{
+		write(1,"-2147483648", 11);
+		len_int = 11;
+		return (len_int);
+	}
+	else if (i == INT_MAX)
+	{
+		write(1, "2147483647", 10);
+		len_int = 10;
+		return (len_int);
+	}
 	else
 	{
 		num = i;
