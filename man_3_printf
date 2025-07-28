@@ -10,6 +10,7 @@ _printf - prints character outputs
 int _printf(const char *format, ...);
 int print_char(va_list arg);
 int print_string(va_list arg);
+int print_int(va_list arg);
 
 .SH DESCRIPTION
 The function _printf utilises write to print characters utilising several functions to accept variable arguments which are converted to an output for stdout.
