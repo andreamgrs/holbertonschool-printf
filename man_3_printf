@@ -21,17 +21,17 @@ print_char - This function is called when _printf process %c format specifier. I
 
 print_string - This function is called when _printf process %s format specifier. Inside the function there is a pointer for the string, a int variable to track the string length, and a variable to retrieve next char * argument from va_list and assign to the pointer. Evaluate that the pointer is not equal to NULL and from there we use the int variable to measure string length using while loop, then output string to screen using write(1 for standard output/2 for stderr, buf, number of bytes to write), and return the number of characters printed.
 
-print_int - This function is called when _printf process %d or %i format specifier. 
+print_int - This function is called when _printf process %d or %i format specifier. For this function we add an extra function call print_number that help us printing the number with recursion. In print_int function we check if the argument pass is negative or positive. For the positive cast the argument pass as integer into unsigned int and store it in another unsigned int variable. For the negative, print - with write(), then make the negative integer positive. Finally print it with write(), 
 
 Character % 
 
-We look for the percentage to know that the next charcaters should be an conversion specifiers otherwise dont print enything if we have two % only print 1¿one.
+We look for the percentage to know that the next character should be a conversion specifier, if there is no conversion specifier do not print anything, if there is two %% only print one.
 
 Conversion specfiers  
-c -
-s -
-i
-d
+c - char type.
+s - string.
+i - stands for integer.
+d - stands for decimal.
 
 .SH RETURN VALUE
 Upon successful reTURN...... 
