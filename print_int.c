@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_number:the recursive fun to convert integer in print_int
- * @n: inteher to evaluate
+ * print_number - the recursive fun to convert integer in print_int
+ * @n: integer to evaluate
  *
  * Return: length on int
  */
@@ -19,13 +19,13 @@ int print_number(int n)
 	write(1, &j, 1);
 	len_int++;
 	return (len_int);
-} 
+}
 
 /**
  * print_int - prints an integer
  * @arg: arguments
  *
- * Return: lenght of the integer
+ * Return: length of the int
  */
 
 int print_int(va_list arg)
@@ -36,7 +36,7 @@ int print_int(va_list arg)
 
 	if (i == INT_MIN)
 	{
-		write(1,"-2147483648", 11);
+		write(1, "-2147483648", 11);
 		len_int = 11;
 		return (len_int);
 	}
