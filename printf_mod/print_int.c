@@ -6,16 +6,17 @@
  *
  * Return: length on int
  */
-int print_number(int n)
+int print_number(unsigned int n)
 {
 	int len_int = 0;
+	int mod = n % 10;
 	char j;
 
-	if (n / 10)
+	if (n > 9)
 	{
 		len_int += print_number(n / 10);
-	}
-	j = '0' + (n % 10);
+        }
+	j = '0' + (mod);
 	write(1, &j, 1);
 	len_int++;
 	return (len_int);
@@ -25,7 +26,7 @@ int print_number(int n)
  * print_int - prints an integer
  * @arg: arguments
  *
- * Return: lenght of the integer
+ * Return: length of the integer
  */
 
 int print_int(va_list arg)
@@ -34,7 +35,7 @@ int print_int(va_list arg)
 	int len_int = 0;
 	unsigned int num;
 
-	if (i == INT_MIN)
+	/**if (i == INT_MIN)
         {
                 write(1,"-2147483648", 11);
                 len_int = 11;
@@ -45,8 +46,12 @@ int print_int(va_list arg)
                 write(1, "2147483647", 10);
                 len_int = 10;
                 return (len_int);
-        }
-	else if (i < 0)
+        }if (i == 0)
+	{
+		write(1, "0", 1);
+		num = i;
+	}*/
+	if (i < 0)
 	{
 		write(1, "-", 1);
 		len_int++;
