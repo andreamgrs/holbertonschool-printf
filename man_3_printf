@@ -21,7 +21,7 @@ print_char - This function is called when _printf processes %c format specifier.
 
 print_string - This function is called when _printf processes %s format specifier. Inside the function, there is a pointer for the string, a int variable to track the string length, and a variable to retrieve the next char * argument from va_list and assigned to the pointer. It evaluate that the pointer is not equal to NULL and from there we use the int variable to measure string length using while loop, then the output string to screen using write (1 for standard output, 2 for stderr, buf, number of bytes to write), and return the number of characters printed.
 
-print_int - This function is called when _printf processes %d or %i format specifier. For this function, we add an extra function calling print_number that help us print the number with recursion. In the print_int function, we check if the argument passing is negative or positive. For the positive arguments, it casts the argument as integer into unsigned int and stores it in another unsigned int variable. For the negative arguments, it initially prints with write, makes the negative integer positive and finally prints the result with write (1 for standard output, 2 for stderr, buff, number of bytes to write).
+print_int - This function is called when _printf processes %d or %i format specifier. Inside the function, an extra function calls print_number that helps print the number using recursion. In the print_int function, the argument passes and is assessed to be negative or positive. For positive arguments, it casts the argument as integer into unsigned int and stores it in another unsigned int variable. For negative arguments, it initially prints with write, makes the negative integer positive and finally prints the result with write (1 for standard output, 2 for stderr, buff, number of bytes to write).
 
 Character % 
 When this character '%' is encountered within the argument, the if loop identifies if the following character is a conversion specifier. If no conversion specifier is identified as the following character, it will not print the initial '%'. If the following character is also '%' i.e. '%%', it will print only one '%'.
@@ -39,8 +39,8 @@ If the format pointer is NULL or if a '%' appears at the end of the format strin
 
 .SH BUGS
 Known limitations of _printf() compared with the standard printf() in <stdio.h> include: 
-1. Only the conversion specifiers %c, %s, %d, %i and %% are supported. All other standard specifiers (%u, %o, %x, %p, %f, field-width, precision, flags, length modifiers, etc.)are ignored.
-2. Unsupported specifiers are not treated as an error; they simply render as % (e.g. %q prints literally %q)
+1. Only the conversion specifiers %c, %s, %d, %i and %% are supported. All other standard specifiers (%u, %o, %x, %p, %f, field-width, precision, flags, length modifiers, etc.) are ignored.
+2. Unsupported specifiers are not treated as an error; they simply render as % (e.g. %q prints literally %q).
 
 .SH EXAMPLE
 To print a character and a string:
