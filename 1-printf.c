@@ -10,7 +10,8 @@ int _printf(const char *format, ...)
 {
 	int countformat = 0, counting_list, printed_count = 0, matched;
 	va_list args;
-	op_list ops[] = {{"c", print_char}, {"s", print_string}, {"d", print_int}, {"i", print_int}, {NULL, NULL}};
+	op_list ops[] = {{"c", print_char}, {"s", print_string}, {"d", print_int},
+		{"i", print_int}, {NULL, NULL}};
 
 	if (format == NULL)
 		return (-1);
@@ -20,9 +21,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[countformat] == '%' && format[countformat + 1] == '%')
 		{
-			write(1, "%", 1);
-			printed_count++;
-			countformat += 2;
+			write(1, "%", 1), printed_count++, countformat += 2;
 			continue;
 		}
 		if (format[countformat] == '%' && format[countformat + 1] == '\0')
@@ -35,22 +34,17 @@ int _printf(const char *format, ...)
 				if (format[countformat + 1] == ops[counting_list].op[0])
 				{
 					printed_count += ops[counting_list].print(args);
-					countformat += 2;
-					matched = 1;
+					countformat += 2, matched = 1;
 					break;
 				}
 			}
 			if (matched == 0)
 			{
-				write(1, &format[countformat], 1);
-				printed_count++;
-				countformat++;
+				write(1, &format[countformat], 1), printed_count++, countformat++;
 			}
 			continue;
 		}
-		write(1, &format[countformat], 1);
-		printed_count++;
-		countformat++;
+		write(1, &format[countformat], 1), printed_count++, countformat++;
 	}
 	va_end(args);
 	return (printed_count);
