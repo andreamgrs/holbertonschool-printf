@@ -2,7 +2,9 @@
 .TH man 1 "29 July 2025" "1.0" "_printf man page"
 
 .SH NAME
-_printf - prints character outputs
+_printf - prints character outputs 
+
+*library - which we use
 
 .SH SYNOPSIS
 #include "main.h"
@@ -11,15 +13,36 @@ int _printf(const char *format, ...);
 int print_char(va_list arg);
 int print_string(va_list arg);
 int print_int(va_list arg);
+* check all the functions are right 
 
 .SH DESCRIPTION
-The function _printf utilises write to print characters utilising several functions to accept variable arguments which are converted to an output for stdout.
+_printf - utilises write to print characters utilising several functions to accept variable arguments which are converted to an output for stdout.
+print_char - ....
+print_string - .....
+
+The main function is .... and the rest of them help us ....
+
+Character % 
+
+We look for the percentage to know that the next charcaters should be an conversion specifiers otherwise dont print enything if we have two % only print 1¿one.
+
+Conversion specfiers  
+c -
+s -
+i
+d
+
+.SH RETURN VALUE
+Upon successful reTURN...... 
 
 .SH OPTIONS
-_printf does not take any options
+_printf does not take any options.
 
 .SH BUGS
-No known bugs
+No known bugs.
+
+.SH EXAMPLE
+For .... we took the funct printf()... an dthen we cal the 
 
 .SH AUTHOR
 Written by Toni M., Andrea M. G., Michelle N. and Chloe Y.
