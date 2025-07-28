@@ -2,25 +2,26 @@
 .TH man 1 "29 July 2025" "1.0" "_printf man page"
 
 .SH NAME
-_printf - prints character outputs 
+_printf - prints character outputs. 
 
-*library - which we use
+.SH LIBRARY
+Standard C library
 
 .SH SYNOPSIS
 #include "main.h"
-
 int _printf(const char *format, ...);
 int print_char(va_list arg);
 int print_string(va_list arg);
 int print_int(va_list arg);
-* check all the functions are right 
 
 .SH DESCRIPTION
 _printf - utilises write to print characters utilising several functions to accept variable arguments which are converted to an output for stdout.
-print_char - ....
-print_string - .....
 
-The main function is .... and the rest of them help us ....
+print_char - This function is called when _printf process %c format specifier. Inside the function there is a variable c of type char, then retrieve argument (as int) from va_list and assign to c. Finally output character to screen using write(1 for standard output/2 for stderr, buf, number of bytes to write), and return value 1 as one character printed. 
+
+print_string - This function is called when _printf process %s format specifier. Inside the function there is a pointer for the string, a int variable to track the string length, and a variable to retrieve next char * argument from va_list and assign to the pointer. Evaluate that the pointer is not equal to NULL and from there we use the int variable to measure string length using while loop, then output string to screen using write(1 for standard output/2 for stderr, buf, number of bytes to write), and return the number of characters printed.
+
+print_int - This function is called when _printf process %d or %i format specifier. 
 
 Character % 
 
