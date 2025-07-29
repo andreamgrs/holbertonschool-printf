@@ -25,7 +25,7 @@ If no conversion specifier is identified as the following character, it will not
 
 **man_3_printf** is the manual page for 1-printf.c
 
-**Printf - Complete** pdf is the flowchart for the code creation of 1-printf.c
+**printf_flowchart** pdf is the flowchart for the code creation of 1-printf.c
 
 ## Return Value
 Upon successful completion, _printf() returns the total number of bytes written to standard output (the sum of all characters printed, excluding
@@ -62,7 +62,7 @@ If you want a custom name for your executable run gcc "file.c" -o "name_of_your-
 
 ## Flowchart
 
-[View PDF] (Printf - Complete.pdf)
+[View PDF] (printf_flowchart.pdf)
 
 
 ## Authors
