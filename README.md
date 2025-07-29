@@ -17,15 +17,15 @@ If no conversion specifier is identified as the following character, it will not
 
 **Help functions**
 
-1-printf.c is the main code for the task
+**1-printf.c** is the main code for the task
 
-print_char.c, print_int.c and print_string.c are functions called upon from 1-printf.c
+**print_char.c, print_int.c and print_string.c** are functions called upon from 1-printf.c
 
-main.h is the header file for 1-printf.c
+**main.h** is the header file for 1-printf.c
 
-man_3_printf is the manual page for 1-printf.c
+**man_3_printf** is the manual page for 1-printf.c
 
-Printf - Complete.pdf is the flowchart for the code creation of 1-printf.c
+**Printf - Complete** pdf is the flowchart for the code creation of 1-printf.c
 
 ## Return Value
 Upon successful completion, _printf() returns the total number of bytes written to standard output (the sum of all characters printed, excluding
@@ -51,16 +51,18 @@ To print INT_MIN:
 	_printf("%d\n", INT_MIN);
 ## Compilation
 All the files compile this way:
-
+'''c
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
-
+'''
 Then run the executable file named as the default output file.
-
+'''c
 $ ./a.out
-
+'''
 If you want a custom name for your executable run gcc "file.c" -o "name_of_your-executable"
 
-## Flow charts
+## Flowchart
+
+[View PDF] (Printf - Complete.pdf)
 
 
 ## Authors
