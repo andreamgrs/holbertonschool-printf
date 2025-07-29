@@ -11,3 +11,5 @@ print_char.c, print_int.c and print_string.c are functions called upon from 1-pr
 main.h is the header file for 1-printf.c
 
 man_3_printf is the manual page for 1-printf.c
+
+Printf - Complete.pdf is the flowchart for the code creation of 1-printf.c
