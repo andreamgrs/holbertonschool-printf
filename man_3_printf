@@ -15,7 +15,14 @@ int print_string(va_list arg);
 int print_int(va_list arg);
 
 .SH DESCRIPTION
-_printf - This function utilises write to print characters, utilising several functions to accept variable arguments which are converted to an output for stdout.
+_printf - This function utilises write to print characters, utilising several functions to accept variable arguments which are converted 
+to an output for stdout. We declare and initialise counters, argument list and format specifier table, then we check for NULL format string 
+and begin processing format string character by character. The next step was to identify "%" is this step we have 4 cases:
+1. If "%%" is found print only one "%" and update count, move ahead by 2 characters and start processing the next character in format string.
+2. If "%" is at the end of the string with no specifier, then return (-1).
+3. If "%" is foun and the matching format specifier is found then call the corresponding function (print_char, print_string, print_int). 
+After calling the function we update the counter and move formard by 2 (past the "%" and specifier). Finally start processing the next character in the string.
+4. If there is no "%" found, just print as it is and we return the tortal numbers of characters printed. 
 
 print_char - This function is called when _printf processes %c format specifier. Inside the function, a type char variable c retrieves the argument (as int) 
 from va_list and assigns it to c. This outputs characters to the screen using write (1 for standard output, 2 for stderr, buf, number of bytes to write), 
