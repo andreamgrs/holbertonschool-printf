@@ -51,13 +51,13 @@ To print INT_MIN:
 	_printf("%d\n", INT_MIN);
 ## Compilation
 All the files compile this way:
-'''c
-$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
-'''
+
+	$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+
 Then run the executable file named as the default output file.
-'''c
-$ ./a.out
-'''
+
+	$ ./a.out
+
 If you want a custom name for your executable run gcc "file.c" -o "name_of_your-executable"
 
 ## Flowchart
