@@ -1,19 +1,3 @@
-README for printf. Collaborated by Toni M, Andrea M G, Chloe Y and Michelle N
-
-
-This directory contains the group task for _printf. 
-
-
-1-printf.c is the main code for the task
-
-print_char.c, print_int.c and print_string.c are functions called upon from 1-printf.c
-
-main.h is the header file for 1-printf.c
-
-man_3_printf is the manual page for 1-printf.c
-
-Printf - Complete.pdf is the flowchart for the code creation of 1-printf.c
-
 ## About The Project
 _printf() is a function that utilises write to print characters, utilising several functions to accept variable arguments which are converted to an output for stdout.
 int _printf(const char *format, ...);
@@ -30,6 +14,18 @@ If no conversion specifier is identified as the following character, it will not
 | s | String |
 | i | Integer |
 | d | Decimal integer |
+
+**Help functions**
+
+1-printf.c is the main code for the task
+
+print_char.c, print_int.c and print_string.c are functions called upon from 1-printf.c
+
+main.h is the header file for 1-printf.c
+
+man_3_printf is the manual page for 1-printf.c
+
+Printf - Complete.pdf is the flowchart for the code creation of 1-printf.c
 
 ## Return Value
 Upon successful completion, _printf() returns the total number of bytes written to standard output (the sum of all characters printed, excluding
@@ -53,6 +49,19 @@ To print a negative integer:
 To print INT_MIN:
 
 	_printf("%d\n", INT_MIN);
+## Compilation
+All the files compile this way:
+
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+
+Then run the executable file named as the default output file.
+
+$ ./a.out
+
+If you want a custom name for your executable run gcc "file.c" -o "name_of_your-executable"
+
+## Flow charts
+
 
 ## Authors
 Toni M, Andrea M G, Chloe Y and Michelle N
