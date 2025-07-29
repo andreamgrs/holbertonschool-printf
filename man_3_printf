@@ -17,14 +17,25 @@ int print_int(va_list arg);
 .SH DESCRIPTION
 _printf - This function utilises write to print characters, utilising several functions to accept variable arguments which are converted to an output for stdout.
 
-print_char - This function is called when _printf processes %c format specifier. Inside the function, a type char variable c retrieves the argument (as int) from va_list and assigns it to c. This outputs characters to the screen using write (1 for standard output, 2 for stderr, buf, number of bytes to write), and returns value 1 when a character is printed.
+print_char - This function is called when _printf processes %c format specifier. Inside the function, a type char variable c retrieves the argument (as int) 
+from va_list and assigns it to c. This outputs characters to the screen using write (1 for standard output, 2 for stderr, buf, number of bytes to write), 
+and returns value 1 when a character is printed.
 
-print_string - This function is called when _printf processes %s format specifier. Inside the function, there is a pointer for the string, a int variable to track the string length, and a variable to retrieve the next char * argument from va_list and assigned to the pointer. It evaluate that the pointer is not equal to NULL and from there we use the int variable to measure string length using while loop, then the output string to screen using write (1 for standard output, 2 for stderr, buf, number of bytes to write), and return the number of characters printed.
+print_string - This function is called when _printf processes %s format specifier. Inside the function, there is a pointer for the string, a int variable
+ to track the string length, and a variable to retrieve the next char * argument from va_list and assigned to the pointer. It evaluate that the pointer
+ is not equal to NULL and from there we use the int variable to measure string length using while loop, then the output string to screen using write
+ (1 for standard output, 2 for stderr, buf, number of bytes to write), and return the number of characters printed.
 
-print_int - This function is called when _printf processes %d or %i format specifier. Inside the function, an extra function calls print_number that helps print the number using recursion. In the print_int function, the argument passes and is assessed to be negative or positive. For positive arguments, it casts the argument as integer into unsigned int and stores it in another unsigned int variable. For negative arguments, it initially prints with write, makes the negative integer positive and finally prints the result with write (1 for standard output, 2 for stderr, buff, number of bytes to write).
+print_int - This function is called when _printf processes %d or %i format specifier. Inside the function, an extra function calls print_number that 
+helps print the number using recursion. In the print_int function, the argument passes and is assessed to be negative or positive. 
+For positive arguments, it casts the argument as integer into unsigned int and stores it in another unsigned int variable. For negative arguments, 
+it initially prints with write, makes the negative integer positive and finally prints the result with write (1 for standard output, 
+2 for stderr, buff, number of bytes to write).
 
 Character % 
-When this character '%' is encountered within the argument, the if loop identifies if the following character is a conversion specifier. If no conversion specifier is identified as the following character, it will not print the initial '%'. If the following character is also '%' i.e. '%%', it will print only one '%'.
+When this character '%' is encountered within the argument, the if loop identifies if the following character is a conversion specifier. 
+If no conversion specifier is identified as the following character, it will not print the initial '%'. If the following character is also 
+'%' i.e. '%%', it will print only one '%'.
 
 Conversion specifiers  
 c - char.
@@ -33,13 +44,16 @@ i - integer.
 d - decimal integer.
 
 .SH RETURN VALUE
-Upon successful completion, _printf() returns the total number of bytes written to standard output (the sum of all characters printed, excluding any terminating null byte).
+Upon successful completion, _printf() returns the total number of bytes written to standard output (the sum of all characters printed, 
+excluding any terminating null byte).
 
-If the format pointer is NULL or if a '%' appears at the end of the format string with no following specifier, then _printf() returns -1 to reflect an error.
+If the format pointer is NULL or if a '%' appears at the end of the format string with no following specifier, then _printf() 
+returns -1 to reflect an error.
 
 .SH BUGS
 Known limitations of _printf() compared with the standard printf() in <stdio.h> include: 
-1. Only the conversion specifiers %c, %s, %d, %i and %% are supported. All other standard specifiers (%u, %o, %x, %p, %f, field-width, precision, flags, length modifiers, etc.) are ignored.
+1. Only the conversion specifiers %c, %s, %d, %i and %% are supported. All other standard specifiers (%u, %o, %x, %p, %f, 
+field-width, precision, flags, length modifiers, etc.) are ignored.
 2. Unsupported specifiers are not treated as an error; they simply render as % (e.g. %q prints literally %q).
 
 .SH EXAMPLE
@@ -61,9 +75,15 @@ To print INT_MIN:
 
 	_printf("%d\n", INT_MIN);
 
-When _printf() takes INT_MIN as an argument, it calls the print_int() function. In print_int(), it makes a negative integer become positive by appending a minus sign. The exception is made for -21...48 [-21....48 -> +21...48], which will fail. Due to the definition of 2's compliment and as the size of signed integer is only 4 bytes, there is no space for 21...48, only for 21...47.
+When _printf() takes INT_MIN as an argument, it calls the print_int() function. In print_int(), it makes a negative integer become positive by appending a minus sign. 
+The exception is made for -21...48 [-21....48 -> +21...48], which will fail. Due to the definition of 2's compliment and as the size of 
+signed integer is only 4 bytes, there is no space for 21...48, only for 21...47.
 
-For INT_MIN, the unsigned int variable num casts an unsigned int to INT_MIN (-21...48 becomes 21...48). This method will only work for -21...48. If an unsigned integer casts for other integers but skips the step which puts a minus sign manually in front of negative i, the other integers will not be converted into their positive counterpart. With an unsigned integer, the recursive function print_num() divides the number by 10, iteratively calls the print_num and take the division result as argument until (n/10) is false. When the function hits base case, it takes the remainder of the argument and converts it into a character, and prints the output.
+For INT_MIN, the unsigned int variable num casts an unsigned int to INT_MIN (-21...48 becomes 21...48). This method will only work for -21...48. 
+If an unsigned integer casts for other integers but skips the step which puts a minus sign manually in front of negative i, the other integers will
+ not be converted into their positive counterpart. With an unsigned integer, the recursive function print_num() divides the number by 10,
+ iteratively calls the print_num and take the division result as argument until (n/10) is false. 
+When the function hits base case, it takes the remainder of the argument and converts it into a character, and prints the output.
  
 .SH AUTHOR
 Written by Toni M., Andrea M. G., Michelle N. and Chloe Y.
